@@ -17,6 +17,7 @@ export const Route = createFileRoute('/')({ component: Home })
 
 const xUrl = 'https://x.com/XWORLDINU'
 const pumpUrl = 'https://join.pump.fun/HSag/l9zvl1sd'
+const whitepaperUrl = '/WorldInu_Whitepaper_v1.0.pdf'
 const tokenCA = '9w4yMoU9vgsUGdp923Q8T7oGbTzpstj2aEi7vu58pump'
 
 const features = [
@@ -100,6 +101,7 @@ function Home() {
         <div className="nav-links">
           <a href="#ecosystem">Ecosystem</a>
           <a href="#token">$WINU</a>
+          <a href={whitepaperUrl} target="_blank" rel="noreferrer">Whitepaper</a>
           <a href="#roadmap">Roadmap</a>
           <a href="#community">Community</a>
         </div>
@@ -114,6 +116,7 @@ function Home() {
           <p>WorldInu is building a home for the Inu ecosystem on Solana — discovery, identity, project information and community tools centered around <strong>$WINU</strong>.</p>
           <div className="hero-actions">
             <a className="launch-cta" href={pumpUrl} target="_blank" rel="noreferrer"><Rocket size={18} /> BUY $WINU</a>
+            <a className="secondary-cta" href={whitepaperUrl} target="_blank" rel="noreferrer"><BookOpenCheck size={18} /> WHITEPAPER</a>
             <a className="secondary-cta" href={xUrl} target="_blank" rel="noreferrer">𝕏 Follow on X</a>
           </div>
           <div className="hero-proof">
@@ -147,6 +150,7 @@ function Home() {
         </div>
         <div className="token-buy">
           <a className="buy-active" href={pumpUrl} target="_blank" rel="noreferrer"><Rocket size={18} /> Buy $WINU</a>
+          <a className="secondary-cta" href={whitepaperUrl} target="_blank" rel="noreferrer"><BookOpenCheck size={16} /> Read Whitepaper</a>
           <small>Official WorldInu launch on Pump.fun.</small>
         </div>
       </section>
@@ -191,7 +195,7 @@ function Home() {
         <div>
           <span className="section-kicker">FOLLOW THE JOURNEY</span>
           <h2>WorldInu is<br /><em>just getting started.</em></h2>
-          <p>Follow the official account for launch updates, product progress and the $WINU updates and ecosystem progress.</p>
+          <p>Follow the official account for launch updates, product progress and $WINU ecosystem updates.</p>
         </div>
         <a className="community-x" href={xUrl} target="_blank" rel="noreferrer">
           <span>𝕏</span>

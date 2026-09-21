@@ -73,12 +73,15 @@ function WorldInuMark({ small = false }: { small?: boolean }) {
 function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
   const Icon = feature.icon
   const isCommunity = feature.name === 'Community'
+  const isPassport = feature.name === 'INU Passport'
   return (
     <article className="feature-card">
       <div className="feature-icon"><Icon size={34} strokeWidth={1.7} /></div>
       <h3>{feature.name}</h3>
       <p>{feature.copy}</p>
-      {isCommunity ? (
+      {isPassport ? (
+        <a className="feature-action" href="/apply">{feature.action} <ArrowRight size={15} /></a>
+      ) : isCommunity ? (
         <a className="feature-action" href={xUrl} target="_blank" rel="noreferrer">{feature.action} <ArrowUpRight size={15} /></a>
       ) : (
         <span className="feature-action disabled">{feature.action} <ArrowRight size={15} /></span>
@@ -102,6 +105,7 @@ function Home() {
           <a href="#ecosystem">Ecosystem</a>
           <a href="#token">$WINU</a>
           <a href={whitepaperUrl} target="_blank" rel="noreferrer">Whitepaper</a>
+          <a href="/apply">Join WorldInu</a>
           <a href="#roadmap">Roadmap</a>
           <a href="#community">Community</a>
         </div>
@@ -153,6 +157,15 @@ function Home() {
           <a className="secondary-cta" href={whitepaperUrl} target="_blank" rel="noreferrer"><BookOpenCheck size={16} /> Read Whitepaper</a>
           <small>Official WorldInu launch on Pump.fun.</small>
         </div>
+      </section>
+
+      <section className="community shell" aria-label="Join WorldInu">
+        <div>
+          <span className="section-kicker">FOR INU PROJECTS</span>
+          <h2>Bring your Inu into<br /><em>the WorldInu ecosystem.</em></h2>
+          <p>Apply for an INU Passport to submit your project details for review and possible listing in the future INU Explorer.</p>
+        </div>
+        <a className="launch-cta" href="/apply"><BookOpenCheck size={18} /> APPLY FOR INU PASSPORT</a>
       </section>
 
       <section className="ecosystem shell" id="ecosystem">

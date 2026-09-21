@@ -16,6 +16,8 @@ import {
 export const Route = createFileRoute('/')({ component: Home })
 
 const xUrl = 'https://x.com/XWORLDINU'
+const pumpUrl = 'https://join.pump.fun/HSag/l9zvl1sd'
+const tokenCA = '9w4yMoU9vgsUGdp923Q8T7oGbTzpstj2aEi7vu58pump'
 
 const features = [
   { icon: Globe2, name: 'INU Explorer', copy: 'Discover Inu projects and navigate the wider ecosystem from one hub.', action: 'Explore' },
@@ -111,7 +113,7 @@ function Home() {
           <h2>One World. <em>Every Inu.</em></h2>
           <p>WorldInu is building a home for the Inu ecosystem on Solana — discovery, identity, project information and community tools centered around <strong>$WINU</strong>.</p>
           <div className="hero-actions">
-            <span className="launch-cta"><Rocket size={18} /> $WINU — COMING SOON</span>
+            <a className="launch-cta" href={pumpUrl} target="_blank" rel="noreferrer"><Rocket size={18} /> BUY $WINU</a>
             <a className="secondary-cta" href={xUrl} target="_blank" rel="noreferrer">𝕏 Follow on X</a>
           </div>
           <div className="hero-proof">
@@ -141,11 +143,11 @@ function Home() {
         <div className="token-meta">
           <span>Network: <strong>Solana</strong></span>
           <span>Launch: <strong>Pump.fun</strong></span>
-          <span><LockKeyhole size={14} /> CA: <strong>Coming after launch</strong></span>
+          <span className="ca-row"><LockKeyhole size={14} /> CA: <strong>{tokenCA}</strong></span>
         </div>
         <div className="token-buy">
-          <span className="buy-disabled"><Rocket size={18} /> Buy $WINU — Coming Soon</span>
-          <small>The official Pump.fun link will appear here after launch.</small>
+          <a className="buy-active" href={pumpUrl} target="_blank" rel="noreferrer"><Rocket size={18} /> Buy $WINU</a>
+          <small>Official WorldInu launch on Pump.fun.</small>
         </div>
       </section>
 
@@ -189,7 +191,7 @@ function Home() {
         <div>
           <span className="section-kicker">FOLLOW THE JOURNEY</span>
           <h2>WorldInu is<br /><em>just getting started.</em></h2>
-          <p>Follow the official account for launch updates, product progress and the future $WINU contract address.</p>
+          <p>Follow the official account for launch updates, product progress and the $WINU updates and ecosystem progress.</p>
         </div>
         <a className="community-x" href={xUrl} target="_blank" rel="noreferrer">
           <span>𝕏</span>
@@ -200,7 +202,7 @@ function Home() {
 
       <footer className="footer shell">
         <a className="brand footer-brand" href="#top"><WorldInuMark small /><span className="brand-copy"><strong>WorldInu <em>Hub</em></strong><small>One World. Every Inu.</small></span></a>
-        <p>Powered by <strong>Solana</strong> · Launching on <strong>Pump.fun</strong></p>
+        <p>Powered by <strong>Solana</strong> · Live on <strong>Pump.fun</strong></p>
         <span>© 2026 WORLDINU</span>
       </footer>
 

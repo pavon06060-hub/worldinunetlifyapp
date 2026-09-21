@@ -1,65 +1,210 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ArrowDown, ArrowUpRight, BadgeCheck, BookOpenCheck, Globe2, ScanSearch, ShieldCheck, Sparkles } from 'lucide-react'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BookOpenCheck,
+  Globe2,
+  LockKeyhole,
+  Rocket,
+  ScanSearch,
+  ShieldCheck,
+  Sparkles,
+  Users,
+  WalletCards,
+} from 'lucide-react'
 
 export const Route = createFileRoute('/')({ component: Home })
 
-const pillars = [
-  { number: '01', icon: ScanSearch, name: 'INU Scanner', label: 'VERIFY', copy: 'Cut through the noise. Check project signals, token details, and community-submitted information in one clear view.', tone: 'orange' },
-  { number: '02', icon: BookOpenCheck, name: 'INU Passport', label: 'IDENTIFY', copy: 'A living identity for Inu projects—bringing the story, links, milestones, and community presence together.', tone: 'cream' },
-  { number: '03', icon: Globe2, name: 'Inu World', label: 'DISCOVER', copy: 'Explore the wider Inu ecosystem without hopping between scattered feeds, lists, and forgotten bookmarks.', tone: 'yellow' },
+const xUrl = 'https://x.com/XWORLDINU'
+
+const features = [
+  { icon: Globe2, name: 'INU Explorer', copy: 'Discover Inu projects and navigate the wider ecosystem from one hub.', action: 'Explore' },
+  { icon: BookOpenCheck, name: 'INU Passport', copy: 'Structured project profiles with source-backed information and review status.', action: 'Get your Passport' },
+  { icon: ScanSearch, name: 'INU Scanner', copy: 'Review token details, project signals and community-submitted information before you ape in.', action: 'Scan a Project' },
+  { icon: WalletCards, name: 'INU Vault', copy: 'A future home for ecosystem tools, resources and community utilities.', action: 'Open Vault' },
+  { icon: Users, name: 'Community', copy: 'Join a global community of Inu lovers, builders and contributors.', action: 'Join on X' },
 ]
 
-function InuMark({ small = false }: { small?: boolean }) {
-  return <svg className={small ? 'inu-mark small' : 'inu-mark'} viewBox="0 0 160 160" role="img" aria-label="WorldInu globe and Inu mark">
-    <circle cx="80" cy="80" r="69" fill="#ff5a1f" stroke="currentColor" strokeWidth="7" />
-    <path d="M31 47c17 12 33 16 49 15 20-1 36-8 50-20M22 90c36 16 79 17 116-1M80 12c-16 18-24 41-24 68 0 29 8 51 24 68M80 12c17 18 25 41 25 68 0 29-8 51-25 68" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" opacity=".75" />
-    <path d="M48 52 62 35l11 20M87 54l12-19 15 17" fill="#fff3d7" stroke="currentColor" strokeWidth="6" strokeLinejoin="round" />
-    <path d="M54 58c5 34 46 37 54-2-16-10-38-11-54 2Z" fill="#fff3d7" stroke="currentColor" strokeWidth="6" />
-    <circle cx="70" cy="68" r="4" fill="currentColor" /><circle cx="94" cy="68" r="4" fill="currentColor" />
-    <path d="m77 77 6 5 6-5M83 82v7m-10-1c5 6 15 7 21 0" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+const roadmap = [
+  ['01', 'Launch $WINU on Pump.fun', 'Solana'],
+  ['02', 'INU Explorer + Passport', 'v1'],
+  ['03', 'Scanner tools + Community Hub', 'Build'],
+  ['04', 'INU Vault + ecosystem partnerships', 'Expand'],
+  ['∞', 'Multi-chain expansion', 'Base · HyperEVM · more'],
+]
+
+function WorldInuMark({ small = false }: { small?: boolean }) {
+  return (
+    <svg className={small ? 'worldinu-mark small' : 'worldinu-mark'} viewBox="0 0 220 220" role="img" aria-label="WorldInu globe mascot">
+      <defs>
+        <linearGradient id="globeGradient" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stopColor="#1ce3ff" />
+          <stop offset=".48" stopColor="#6d5cff" />
+          <stop offset="1" stopColor="#9b43ff" />
+        </linearGradient>
+        <linearGradient id="dogGradient" x1="0" x2="1">
+          <stop offset="0" stopColor="#c98450" />
+          <stop offset=".5" stopColor="#f0bd7f" />
+          <stop offset="1" stopColor="#9f5e3c" />
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <circle cx="110" cy="110" r="101" fill="#06111f" stroke="url(#globeGradient)" strokeWidth="3" />
+      <circle cx="110" cy="110" r="86" fill="none" stroke="#35d9ff" strokeOpacity=".22" strokeWidth="1.5" />
+      <path d="M31 102c26 10 53 15 79 15 29 0 55-5 79-16M42 69c20 8 43 11 68 11 25 0 48-4 68-12M44 150c21-8 44-12 67-12 25 0 48 4 67 12M110 24c-21 23-31 52-31 86s10 63 31 86M110 24c22 23 32 52 32 86s-10 63-32 86" fill="none" stroke="#2adcf8" strokeOpacity=".33" strokeWidth="2" />
+      <path d="M62 84 78 43l28 31M158 84l-16-41-28 31" fill="url(#dogGradient)" stroke="#d99a61" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M66 82c3 58 84 61 88 0-20-18-67-19-88 0Z" fill="url(#dogGradient)" stroke="#e7b479" strokeWidth="4" />
+      <path d="M75 95c11-13 58-14 70 0-4 38-61 38-70 0Z" fill="#f2c792" opacity=".88" />
+      <circle cx="92" cy="91" r="6" fill="#35e5ff" filter="url(#glow)" />
+      <circle cx="128" cy="91" r="6" fill="#35e5ff" filter="url(#glow)" />
+      <path d="m103 111 7 6 8-6" fill="#15191f" />
+      <path d="M110 117v9m-17 0c9 10 25 10 34 0" fill="none" stroke="#2b211c" strokeWidth="4" strokeLinecap="round" />
+      <circle cx="110" cy="110" r="101" fill="none" stroke="#7b61ff" strokeOpacity=".45" strokeWidth="1" strokeDasharray="5 10" />
+    </svg>
+  )
+}
+
+function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
+  const Icon = feature.icon
+  const isCommunity = feature.name === 'Community'
+  return (
+    <article className="feature-card">
+      <div className="feature-icon"><Icon size={34} strokeWidth={1.7} /></div>
+      <h3>{feature.name}</h3>
+      <p>{feature.copy}</p>
+      {isCommunity ? (
+        <a className="feature-action" href={xUrl} target="_blank" rel="noreferrer">{feature.action} <ArrowUpRight size={15} /></a>
+      ) : (
+        <span className="feature-action disabled">{feature.action} <ArrowRight size={15} /></span>
+      )}
+    </article>
+  )
 }
 
 function Home() {
-  return <main>
-    <nav className="nav shell" aria-label="Main navigation">
-      <a className="brand" href="#top" aria-label="WorldInu home"><InuMark small /><span>WORLD<span>INU</span></span></a>
-      <div className="nav-links"><a href="#ecosystem">Ecosystem</a><a href="#mission">Mission</a><a href="#winunomics">$WINU</a></div>
-      <a className="nav-cta" href="#join">ENTER THE WORLD <ArrowUpRight size={16} /></a>
-    </nav>
+  return (
+    <main id="top">
+      <div className="site-glow glow-a" />
+      <div className="site-glow glow-b" />
 
-    <section className="hero shell" id="top">
-      <div className="hero-copy">
-        <div className="eyebrow"><span>●</span> SOLANA NATIVE · COMMUNITY POWERED</div>
-        <h1>ONE WORLD.<br /><em>EVERY INU.</em></h1>
-        <p>Discover Inu projects. Verify what matters. Build identity. Join a community bringing the whole Inu ecosystem into one place.</p>
-        <div className="hero-actions"><a className="button primary" href="#ecosystem">EXPLORE THE VISION <ArrowDown size={17} /></a><span className="launch-note"><i /> LAUNCHING ON PUMP.FUN</span></div>
-      </div>
-      <div className="hero-art" aria-hidden="true">
-        <div className="orbit orbit-one"><span>SCANNER</span></div><div className="orbit orbit-two"><span>PASSPORT</span></div><InuMark />
-        <div className="sticker sticker-one">BORN<br />ON SOL</div><div className="sticker sticker-two">$WINU</div><Sparkles className="spark spark-one" /><Sparkles className="spark spark-two" />
-      </div>
-      <div className="hero-index"><span>W·01</span><span>THE INU UNIVERSE<br />STARTS HERE</span></div>
-    </section>
+      <nav className="nav shell" aria-label="Main navigation">
+        <a className="brand" href="#top">
+          <WorldInuMark small />
+          <span className="brand-copy"><strong>WorldInu <em>Hub</em></strong><small>One World. Every Inu.</small></span>
+        </a>
+        <div className="nav-links">
+          <a href="#ecosystem">Ecosystem</a>
+          <a href="#token">$WINU</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#community">Community</a>
+        </div>
+        <a className="x-button" href={xUrl} target="_blank" rel="noreferrer"><span>𝕏</span> Join X</a>
+      </nav>
 
-    <div className="ticker" aria-label="WorldInu principles"><div>DISCOVER <span>✦</span> VERIFY <span>✦</span> CONNECT <span>✦</span> BUILD <span>✦</span> ONE WORLD · EVERY INU <span>✦</span> DISCOVER <span>✦</span> VERIFY <span>✦</span> CONNECT <span>✦</span></div></div>
+      <section className="hero shell">
+        <div className="hero-copy">
+          <div className="eyebrow">SOLANA <span>✦</span> COMMUNITY <span>✦</span> INUVERSE</div>
+          <h1>WorldInu <span>Hub</span></h1>
+          <h2>One World. <em>Every Inu.</em></h2>
+          <p>WorldInu is building a home for the Inu ecosystem on Solana — discovery, identity, project information and community tools centered around <strong>$WINU</strong>.</p>
+          <div className="hero-actions">
+            <span className="launch-cta"><Rocket size={18} /> $WINU — COMING SOON</span>
+            <a className="secondary-cta" href={xUrl} target="_blank" rel="noreferrer">𝕏 Follow on X</a>
+          </div>
+          <div className="hero-proof">
+            <span><Globe2 size={19} /> All Inus Welcome</span>
+            <span><Users size={19} /> Global Community</span>
+            <span><Sparkles size={19} /> Solana Powered</span>
+            <span><ShieldCheck size={19} /> Information First</span>
+          </div>
+        </div>
 
-    <section className="ecosystem shell" id="ecosystem">
-      <div className="section-heading"><div><span className="kicker">THE ECOSYSTEM</span><h2>More than<br />a meme.</h2></div><p>WorldInu begins with culture, then builds the tools that make the Inu world easier to explore, understand, and trust.</p></div>
-      <div className="pillar-grid">{pillars.map(({ icon: Icon, ...pillar }) => <article className={`pillar ${pillar.tone}`} key={pillar.name}>
-        <div className="pillar-top"><span>{pillar.number}</span><Icon size={30} strokeWidth={1.7} /></div><span className="mini-label">{pillar.label}</span><h3>{pillar.name}</h3><p>{pillar.copy}</p><div className="coming"><i /> IN DEVELOPMENT</div>
-      </article>)}</div>
-    </section>
+        <div className="hero-visual" aria-hidden="true">
+          <div className="planet-ring ring-one" />
+          <div className="planet-ring ring-two" />
+          <div className="planet-core" />
+          <WorldInuMark />
+          <div className="orbit-badge badge-one">INU<br />WORLD</div>
+          <div className="orbit-badge badge-two">$WINU</div>
+          <div className="hero-side-copy">DIFFERENT PROJECTS<br /><strong>ONE HOME</strong><br />WORLDINU</div>
+        </div>
+      </section>
 
-    <section className="mission" id="mission"><div className="shell mission-inner">
-      <div className="mission-seal"><InuMark /><span>WORLDINU<br />EST. ON SOLANA</span></div>
-      <div className="mission-copy"><span className="kicker light">WHY WORLDINU</span><h2>The Inu world is massive.<br /><em>It shouldn’t feel scattered.</em></h2><p>WorldInu is the meeting point: a shared layer for discovery, project identity, useful verification, and community energy—built in the open and powered by the people who show up.</p></div>
-      <div className="principles"><div><BadgeCheck /><span><b>OPEN BY DESIGN</b>Built around participation, not gatekeeping.</span></div><div><ShieldCheck /><span><b>VERIFY, DON’T HYPE</b>Tools that help people form their own view.</span></div><div><Globe2 /><span><b>ONE INU WORLD</b>A home for every branch of the ecosystem.</span></div></div>
-    </div></section>
+      <section className="token-panel shell" id="token">
+        <div className="token-brand">
+          <WorldInuMark small />
+          <div><span>THE OFFICIAL TOKEN</span><h2>$WINU <small>WORLDINU</small></h2><p>Community token for the WorldInu ecosystem.</p></div>
+        </div>
+        <div className="token-meta">
+          <span>Network: <strong>Solana</strong></span>
+          <span>Launch: <strong>Pump.fun</strong></span>
+          <span><LockKeyhole size={14} /> CA: <strong>Coming after launch</strong></span>
+        </div>
+        <div className="token-buy">
+          <span className="buy-disabled"><Rocket size={18} /> Buy $WINU — Coming Soon</span>
+          <small>The official Pump.fun link will appear here after launch.</small>
+        </div>
+      </section>
 
-    <section className="token shell" id="winunomics"><div className="token-title"><span className="kicker">THE COMMUNITY LAYER</span><h2>$WINU</h2></div><div className="token-body"><p>The culture token at the center of WorldInu. It starts on Pump.fun, grows with its community, and connects participation across the ecosystem.</p><div className="fair-note"><Sparkles size={22} /><span><b>MEME FIRST. UTILITY FOLLOWS.</b>No invented promises. No fake roadmap theatre. We build, share, and grow in public.</span></div></div></section>
+      <section className="ecosystem shell" id="ecosystem">
+        <div className="section-heading">
+          <div><span className="section-kicker">THE INUVERSE</span><h2>More than<br />a meme.</h2></div>
+          <p>A community-first ecosystem designed to make Inu projects easier to discover, review and follow.</p>
+        </div>
+        <div className="feature-grid">{features.map((feature) => <FeatureCard key={feature.name} feature={feature} />)}</div>
+      </section>
 
-    <section className="join" id="join"><div className="join-grid" aria-hidden="true" /><div className="join-content"><span className="kicker light">THE WORLD IS FORMING</span><h2>EARLY<br /><em>LOOKS GOOD</em><br />ON YOU.</h2><p>WorldInu is taking shape. Follow the journey, bring your Inu, and help build the place where the whole ecosystem meets.</p><div className="button launch-button">LAUNCHING SOON <span>↗</span></div></div><div className="join-mark"><InuMark /></div></section>
-    <footer className="footer shell"><a className="brand" href="#top"><InuMark small /><span>WORLD<span>INU</span></span></a><p>ONE WORLD. EVERY INU.</p><span>© 2026 WORLDINU · BUILT ON SOLANA</span></footer>
-  </main>
+      <section className="why-roadmap shell">
+        <div className="why-panel">
+          <span className="section-kicker">WHY WORLDINU?</span>
+          <h2>Inu unites<br />the world.</h2>
+          <div className="why-list">
+            <span><Sparkles /> Built for the wider Inu ecosystem</span>
+            <span><BookOpenCheck /> Source-backed project information</span>
+            <span><Users /> Community-powered participation</span>
+            <span><ScanSearch /> Tools for discovery and review</span>
+            <span><Globe2 /> A hub designed to grow across chains</span>
+          </div>
+          <div className="earth-glow" aria-hidden="true" />
+        </div>
+
+        <div className="roadmap-panel" id="roadmap">
+          <span className="section-kicker">ROADMAP</span>
+          <h2>Build in public.</h2>
+          <div className="roadmap-list">
+            {roadmap.map(([step, title, meta]) => (
+              <div className="roadmap-row" key={step}>
+                <span className="roadmap-step">{step}</span>
+                <div><strong>{title}</strong><small>{meta}</small></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="community shell" id="community">
+        <div>
+          <span className="section-kicker">FOLLOW THE JOURNEY</span>
+          <h2>WorldInu is<br /><em>just getting started.</em></h2>
+          <p>Follow the official account for launch updates, product progress and the future $WINU contract address.</p>
+        </div>
+        <a className="community-x" href={xUrl} target="_blank" rel="noreferrer">
+          <span>𝕏</span>
+          <div><small>OFFICIAL X</small><strong>@XWORLDINU</strong></div>
+          <ArrowUpRight />
+        </a>
+      </section>
+
+      <footer className="footer shell">
+        <a className="brand footer-brand" href="#top"><WorldInuMark small /><span className="brand-copy"><strong>WorldInu <em>Hub</em></strong><small>One World. Every Inu.</small></span></a>
+        <p>Powered by <strong>Solana</strong> · Launching on <strong>Pump.fun</strong></p>
+        <span>© 2026 WORLDINU</span>
+      </footer>
+
+      <div className="disclaimer shell">WorldInu tools are intended to organize public and community-submitted information. Nothing on this site is financial advice or a guarantee of token or project safety.</div>
+    </main>
+  )
 }
